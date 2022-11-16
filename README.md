@@ -11,9 +11,9 @@ Sistema Console feito em C# para criação, alteração e deleção de Livros e 
 `dotnet run --project Biblioteca.Console`
 
 ### O que falta fazer
-- [ ] - #1
-- [ ] - #2
-- [ ] - #3
-- [ ] - #4
+- [ ] #1
+- [ ] #2
+- [ ] #3
+- [ ] #4
 
 > Código desenvolvido e mantido por David Tigre Moraes
