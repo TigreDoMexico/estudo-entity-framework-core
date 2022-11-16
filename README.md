@@ -8,12 +8,12 @@ Sistema Console feito em C# para criação, alteração e deleção de Livros e 
 - /src/Services: Contém as lógicas de execução para criação, alteração e deleção dos Modelos
 
 ### Como Executar
-`dotnet run`
+`dotnet run --project Biblioteca.Console`
 
 ### O que falta fazer
-- [] - Transformar o código em Code First
-- [] - Ajustar para diferentes bancos de dados
-- [] - Inserir a ConnectionString como variável de ambiente
-- [] - Desacoplar o Console/Service do Model
+- [ ] - #1
+- [ ] - #2
+- [ ] - #3
+- [ ] - #4
 
 > Código desenvolvido e mantido por David Tigre Moraes
