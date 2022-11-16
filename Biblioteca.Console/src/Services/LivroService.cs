@@ -4,6 +4,10 @@ namespace Biblioteca.Console.Service;
 
 public class LivroService : Service
 {
+    public LivroService(string connectionString) : base(connectionString)
+    {
+    }
+
     public void AdicionarNovoLivro()
     {
         System.Console.WriteLine("Escreva o nome do Livro");

@@ -5,10 +5,9 @@ namespace Biblioteca.Console.Service;
 
 public abstract class Service : IDisposable
 {
-    private readonly string connectionString = "Server=.;Database=Biblioteca;Trusted_Connection=True;TrustServerCertificate=True";
     protected BibliotecaDbContext _dbContext;
 
-    public Service()
+    public Service(string connectionString)
     {
         var bibliotecaDbOptions = new DbContextOptionsBuilder<BibliotecaDbContext>()
             .UseSqlServer(connectionString)
