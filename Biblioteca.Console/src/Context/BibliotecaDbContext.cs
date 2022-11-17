@@ -5,11 +5,18 @@ namespace Biblioteca.Console.Context;
 
 public class BibliotecaDbContext : DbContext
 {
-    public BibliotecaDbContext(DbContextOptions<BibliotecaDbContext> options)
-        : base(options)
-    {
-    }
-
+    private readonly string _connectionString;
     public DbSet<Autor> Autores { get; set; }
     public DbSet<Livro> Livros { get; set; }
+
+    public BibliotecaDbContext(string connectionString) =>
+        _connectionString = connectionString;
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
+        optionsBuilder.UseSqlServer(_connectionString);
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(BibliotecaDbContext).Assembly);
+    }
 }

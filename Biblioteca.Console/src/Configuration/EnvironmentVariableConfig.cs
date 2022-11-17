@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace Biblioteca.Console.src.Configuration;
+namespace Biblioteca.Console.Configuration;
 
 public static class EnvironmentVariableConfig
 {
@@ -8,7 +8,6 @@ public static class EnvironmentVariableConfig
     {
         var configuration = new ConfigurationBuilder()
             .AddJsonFile($"appsettings.json");
-
         return configuration.Build();
     }
 

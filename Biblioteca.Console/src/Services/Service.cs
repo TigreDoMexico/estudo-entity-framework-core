@@ -9,11 +9,7 @@ public abstract class Service : IDisposable
 
     public Service(string connectionString)
     {
-        var bibliotecaDbOptions = new DbContextOptionsBuilder<BibliotecaDbContext>()
-            .UseSqlServer(connectionString)
-            .Options;
-
-        _dbContext = new BibliotecaDbContext(bibliotecaDbOptions);
+        _dbContext = new BibliotecaDbContext(connectionString);
     }
 
     public void Dispose() => _dbContext.Dispose();

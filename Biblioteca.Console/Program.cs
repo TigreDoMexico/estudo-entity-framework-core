@@ -1,5 +1,5 @@
 ﻿using Biblioteca.Console.Service;
-using Biblioteca.Console.src.Configuration;
+using Biblioteca.Console.Configuration;
 
 var connectionString = EnvironmentVariableConfig
     .GetEnvironmentVariable()
