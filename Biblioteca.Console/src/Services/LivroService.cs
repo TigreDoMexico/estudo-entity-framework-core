@@ -8,17 +8,6 @@ public class LivroService : Service
     {
     }
 
-    public void AdicionarNovoLivro()
-    {
-        System.Console.WriteLine("Escreva o nome do Livro");
-        var nome = System.Console.ReadLine() ?? "";
-
-        var livro = new Livro() { Nome = nome };
-
-        _dbContext.Livros.Add(livro);
-        _dbContext.SaveChanges();
-    }
-
     public void AdicionarNovoAutor()
     {
         System.Console.WriteLine("Escreva o nome do Autor");
@@ -27,6 +16,9 @@ public class LivroService : Service
         var autor = new Autor() { Nome = nome };
 
         _dbContext.Autores.Add(autor);
+        // _dbContext.Set<Autor>().Add(autor);
+        // _dbContext.Entry(autor).State = EntityState.Added;
+
         _dbContext.SaveChanges();
 
         System.Console.WriteLine("AUTOR INSERIDO COM SUCESSO NO BANCO DE DADOS");
@@ -43,8 +35,8 @@ public class LivroService : Service
         if(autorEncontrado is not null)
         {
             System.Console.WriteLine("AUTOR ENCONTRADO COM SUCESSO NO BANCO DE DADOS");
-            System.Console.WriteLine(autorEncontrado.Id);
-            System.Console.WriteLine(autorEncontrado.Nome);
+            System.Console.WriteLine($"Id: {autorEncontrado.Id}");
+            System.Console.WriteLine($"Nome: {autorEncontrado.Nome}");
         }
         else
         {
