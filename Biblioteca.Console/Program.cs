@@ -3,10 +3,10 @@ using Biblioteca.Console.Configuration;
 
 var connectionString = EnvironmentVariableConfig
     .GetEnvironmentVariable()
-    .GetSqlServerConnectionString();
+    .GetMariaDbConnectionString();
 
 using (var service = new LivroService(connectionString))
 {
-    service.ObterAutor();
+    service.AdicionarNovoAutor();
 }
 

@@ -5,11 +5,11 @@ namespace Biblioteca.Console.Service;
 
 public abstract class Service : IDisposable
 {
-    protected BibliotecaDbContext _dbContext;
+    protected BibliotecaMariaDbContext _dbContext;
 
     public Service(string connectionString)
     {
-        _dbContext = new BibliotecaDbContext(connectionString);
+        _dbContext = new BibliotecaMariaDbContext(connectionString);
     }
 
     public void Dispose() => _dbContext.Dispose();

@@ -15,4 +15,9 @@ public static class EnvironmentVariableConfig
     {
         return config.GetConnectionString("SqlServer") ?? "";
     }
+
+    public static string GetMariaDbConnectionString(this IConfigurationRoot config)
+    {
+        return config.GetConnectionString("MariaDb") ?? "";
+    }
 }
