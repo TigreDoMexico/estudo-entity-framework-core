@@ -1,46 +1,54 @@
 using Biblioteca.Console.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Biblioteca.Console.Service;
 
 public class LivroService : Service
 {
-    public LivroService(string connectionString) : base(connectionString)
+    public LivroService(string connectionString)
+        : base(connectionString)
     {
     }
 
-    public void AdicionarNovoAutor()
+    public void AdicionarLivro()
     {
-        System.Console.WriteLine("Escreva o nome do Autor");
-        var nome = System.Console.ReadLine() ?? "";
+        var autor = _dbContext.Autores.FirstOrDefault();
 
-        var autor = new Autor() { Nome = nome };
+        var livro = new Livro 
+        {
+            Autor = autor,
+            Nome = "Memórias Póstumas de Brás Cubas"
+        };
 
-        _dbContext.Autores.Add(autor);
-        // _dbContext.Set<Autor>().Add(autor);
-        // _dbContext.Entry(autor).State = EntityState.Added;
-
+        _dbContext.Livros.Add(livro);
         _dbContext.SaveChanges();
 
-        System.Console.WriteLine("AUTOR INSERIDO COM SUCESSO NO BANCO DE DADOS");
+        System.Console.WriteLine("LIVRO ADICIONADO COM SUCESSO");
     }
 
-    public void ObterAutor()
+    public void ObterLivros()
     {
-        System.Console.WriteLine("Informe o Id do Autor");
-        var idDigitado = System.Console.ReadLine() ?? "";
-        int id;
-        int.TryParse(idDigitado, out id);
+        var livros = _dbContext.Livros
+            .Include(livro => livro.Autor)
+            .ToList();
 
-        var autorEncontrado = _dbContext.Autores.Where(a => a.Id == id).FirstOrDefault();
-        if(autorEncontrado is not null)
+        if(livros.Count > 0)
         {
-            System.Console.WriteLine("AUTOR ENCONTRADO COM SUCESSO NO BANCO DE DADOS");
-            System.Console.WriteLine($"Id: {autorEncontrado.Id}");
-            System.Console.WriteLine($"Nome: {autorEncontrado.Nome}");
+            foreach(var livro in livros)
+            {
+                System.Console.WriteLine($"ID: {livro.Id}");
+                System.Console.WriteLine($"Nome: {livro.Nome}");
+
+                if(livro.Autor is not null)
+                {
+                    System.Console.WriteLine($"Autor Id: {livro.Autor?.Id}");
+                    System.Console.WriteLine($"Autor Nome: {livro.Autor?.Nome}");
+                }
+            }
         }
         else
         {
-            System.Console.WriteLine("NENHUM AUTOR ENCONTRADO");
+            System.Console.WriteLine("NENHUM LIVRO ENCONTRADO");
         }
     }
 }

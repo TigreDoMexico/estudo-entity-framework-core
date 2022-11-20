@@ -5,8 +5,13 @@ var connectionString = EnvironmentVariableConfig
     .GetEnvironmentVariable()
     .GetSqlServerConnectionString();
 
-using (var service = new LivroService(connectionString))
+// using (var service = new LivroService(connectionString))
+// {
+//     service.ObterLivros();
+// }
+
+using (var service = new AutorService(connectionString))
 {
-    service.ObterAutor();
+    service.AtualizarAutor();
 }
 
