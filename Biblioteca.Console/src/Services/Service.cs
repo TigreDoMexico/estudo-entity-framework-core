@@ -1,11 +1,15 @@
 using Biblioteca.Console.Context;
-using Microsoft.EntityFrameworkCore;
 
 namespace Biblioteca.Console.Service;
 
 public abstract class Service : IDisposable
 {
     protected BibliotecaDbContext _dbContext;
+
+    public Service()
+    {
+        _dbContext = new BibliotecaDbContext();
+    }
 
     public Service(string connectionString)
     {

@@ -14,7 +14,7 @@ public class LivroService : Service
     {
         var autor = _dbContext.Autores.FirstOrDefault();
 
-        var livro = new Livro 
+        var livro = new Livro
         {
             Autor = autor,
             Nome = "Memórias Póstumas de Brás Cubas"
