@@ -8,8 +8,8 @@ public class BibliotecaDbContext : DbContext
 {
     private readonly string _connectionString;
 
-    public DbSet<Autor> Autores { get; set; }
-    public DbSet<Livro> Livros { get; set; }
+    public DbSet<Autor> Autores { get; set; } = default!;
+    public DbSet<Livro> Livros { get; set; } = default!;
 
     public BibliotecaDbContext()
     {

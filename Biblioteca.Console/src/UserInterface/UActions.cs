@@ -12,7 +12,7 @@ public static class UActions
         while (!fimPrograma)
         {
             UI.ImprimirMenuPrincipal();
-            var opcao = ObterOpcaoUsuario();
+            var opcao = ObterEntradaNumericaUsuario();
 
             switch (opcao)
             {
@@ -41,7 +41,7 @@ public static class UActions
         while (!voltar)
         {
             UI.ImprimirMenuLivros();
-            var opcao = ObterOpcaoUsuario();
+            var opcao = ObterEntradaNumericaUsuario();
 
             switch (opcao)
             {
@@ -80,7 +80,7 @@ public static class UActions
         while (!voltar)
         {
             UI.ImprimirMenuAutores();
-            var opcao = ObterOpcaoUsuario();
+            var opcao = ObterEntradaNumericaUsuario();
 
             switch (opcao)
             {
@@ -111,13 +111,19 @@ public static class UActions
         }
     }
 
-    public static int ObterOpcaoUsuario()
+    public static int ObterEntradaNumericaUsuario()
     {
-        int opcao;
-        var opcaoTexto = Cons.ReadLine();
+        int opcao = -1;
 
-        int.TryParse(opcaoTexto, out opcao);
+        while(opcao == -1) {
+            var opcaoTexto = Cons.ReadLine();
+            int.TryParse(opcaoTexto, out opcao);
 
+            if(opcao == -1)
+                Cons.WriteLine("Favor digitar uma entrada numérica válida");
+        }
+
+        Cons.Clear();
         return opcao;
     }
 }
