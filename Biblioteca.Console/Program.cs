@@ -1,12 +1,6 @@
-﻿using Biblioteca.Console.Service;
-using Biblioteca.Console.Configuration;
+﻿using Biblioteca.Console.UserInterface;
 
-var connectionString = EnvironmentVariableConfig
-    .GetEnvironmentVariable()
-    .GetSqlServerConnectionString();
+UI.ImprimirBoasVindas();
+UActions.MenuPrincipal();
 
-using (var service = new LivroService(connectionString))
-{
-    service.ObterAutor();
-}
 
