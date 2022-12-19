@@ -8,4 +8,7 @@ public class AutorRepository : Repository<Autor>
 
     public bool Existe(int id)
         => (from a in dbContext.Autores where a.Id == id select a).Any();
+
+    public bool PossuiLivrosAtreladosAoId(int id)
+        => (from a in dbContext.Livros where a.Autor.Id == id select a).Any();
 }

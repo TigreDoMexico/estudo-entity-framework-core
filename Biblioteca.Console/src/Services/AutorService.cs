@@ -19,7 +19,19 @@ public class AutorService
         System.Console.WriteLine("AUTOR INSERIDO COM SUCESSO NO BANCO DE DADOS");
     }
 
-    public void ObterAutor()
+    public void ListaTodosOsAutores()
+    {
+        System.Console.WriteLine("Lista de Autores");
+        foreach(var autor in repository.BuscarTodos()) {
+            System.Console.WriteLine($"Id: {autor.Id}");
+            System.Console.WriteLine($"Nome: {autor.Nome}");
+            System.Console.WriteLine("");
+        }
+
+        UI.PressioneEnterParaContinuar();
+    }
+
+    public void PesquisarAutor()
     {
         System.Console.WriteLine("Informe o Id do Autor");
         var id = UActions.ObterEntradaNumericaUsuario();
@@ -70,15 +82,21 @@ public class AutorService
         var id = UActions.ObterEntradaNumericaUsuario();
 
         var autor = repository.BuscarPorId(id);
+        var possuiLivros = repository.PossuiLivrosAtreladosAoId(id);
 
-        if (autor is not null)
+        if (autor is not null && !possuiLivros)
         {
             repository.Deletar(autor);
             System.Console.WriteLine("AUTOR REMOVIDO COM SUCESSO NO BANCO DE DADOS");
         }
         else
         {
-            System.Console.WriteLine("NENHUM AUTOR ENCONTRADO");
+            System.Console.WriteLine("NÃO FOI POSSÍVEL DELETAR O AUTOR");
+
+            if(possuiLivros)
+                System.Console.WriteLine("ELE AINDA POSSUI LIVROS ATRELADOS A ELE");
+            else
+                System.Console.WriteLine("AUTOR NÃO ENCONTRADO");
         }
     }
 }

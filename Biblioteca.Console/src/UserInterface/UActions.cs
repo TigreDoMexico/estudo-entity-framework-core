@@ -1,3 +1,4 @@
+using Biblioteca.Console.Service;
 using Biblioteca.Console.UserInterface.Actions;
 using Cons = System.Console;
 
@@ -35,6 +36,8 @@ public static class UActions
 
     public static void MenuLivros()
     {
+        var service = new LivroService();
+
         bool voltar = false;
         Cons.Clear();
 
@@ -46,19 +49,19 @@ public static class UActions
             switch (opcao)
             {
                 case (int)LivrosActions.Adicionar:
-                    // AÇÃO DO USUÁRIO
+                    service.AdicionarNovoLivro();
                     break;
                 case (int)LivrosActions.Listar:
-                    // AÇÃO DO USUÁRIO
+                    service.ListarTodosOsLivros();
                     break;
                 case (int)LivrosActions.Pesquisar:
-                    // AÇÃO DO USUÁRIO
+                    service.PesquisarLivro();
                     break;
                 case (int)LivrosActions.Atualizar:
-                    // AÇÃO DO USUÁRIO
+                    service.AtualizarLivro();
                     break;
                 case (int)LivrosActions.Remover:
-                    // AÇÃO DO USUÁRIO
+                    service.DeletarLivro();
                     break;
                 case (int)LivrosActions.Voltar:
                     voltar = true;
@@ -74,6 +77,8 @@ public static class UActions
 
     public static void MenuAutores()
     {
+        var service = new AutorService();
+
         bool voltar = false;
         Cons.Clear();
 
@@ -85,19 +90,19 @@ public static class UActions
             switch (opcao)
             {
                 case (int)AutoresActions.Adicionar:
-                    // AÇÃO DO USUÁRIO
+                    service.AdicionarNovoAutor();
                     break;
                 case (int)AutoresActions.Listar:
-                    // AÇÃO DO USUÁRIO
+                    service.ListaTodosOsAutores();
                     break;
                 case (int)AutoresActions.Pesquisar:
-                    // AÇÃO DO USUÁRIO
+                    service.PesquisarAutor();
                     break;
                 case (int)AutoresActions.Atualizar:
-                    // AÇÃO DO USUÁRIO
+                    service.AtualizarAutor();
                     break;
                 case (int)AutoresActions.Remover:
-                    // AÇÃO DO USUÁRIO
+                    service.DeletarAutor();
                     break;
                 case (int)AutoresActions.Voltar:
                     voltar = true;
