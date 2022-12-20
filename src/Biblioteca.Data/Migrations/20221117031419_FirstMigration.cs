@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Biblioteca.Console.Migrations
+namespace Biblioteca.Data.Migrations
 {
     /// <inheritdoc />
     public partial class FirstMigration : Migration

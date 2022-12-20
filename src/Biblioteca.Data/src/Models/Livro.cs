@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Biblioteca.Console.Models;
+namespace Biblioteca.Data.Models;
 
 public class Livro
 {

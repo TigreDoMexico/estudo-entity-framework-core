@@ -1,6 +1,6 @@
-using Biblioteca.Console.Context;
+using Biblioteca.Data.Context;
 
-namespace Biblioteca.Console.Repository;
+namespace Biblioteca.Data.Repository;
 public abstract class Repository<T> where T : class
 {
 

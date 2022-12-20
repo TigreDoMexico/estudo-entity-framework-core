@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace Biblioteca.Console.Configuration;
+namespace Biblioteca.Data.Configuration;
 
 public static class EnvironmentVariableConfig
 {

@@ -1,7 +1,7 @@
-using Biblioteca.Console.Models;
+using Biblioteca.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Biblioteca.Console.Repository;
+namespace Biblioteca.Data.Repository;
 public class LivroRepository : Repository<Livro>
 {
     public List<Livro> BuscarTodosComAutor() =>
