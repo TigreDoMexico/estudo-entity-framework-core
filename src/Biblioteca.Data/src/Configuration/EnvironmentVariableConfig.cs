@@ -1,17 +1,17 @@
 using Microsoft.Extensions.Configuration;
 
-namespace Biblioteca.Console.Configuration;
+namespace Biblioteca.Data.Configuration;
 
-public static class EnvironmentVariableConfig
+internal static class EnvironmentVariableConfig
 {
-    public static IConfigurationRoot GetEnvironmentVariable()
+    internal static IConfigurationRoot GetEnvironmentVariable()
     {
         var configuration = new ConfigurationBuilder()
             .AddJsonFile($"appsettings.json");
         return configuration.Build();
     }
 
-    public static string GetSqlServerConnectionString(this IConfigurationRoot config)
+    internal static string GetSqlServerConnectionString(this IConfigurationRoot config)
     {
         return config.GetConnectionString("SqlServer") ?? "";
     }

@@ -1,4 +1,13 @@
-# Projeto Biblioteca.Console
+# Projeto Biblioteca.Data
+
+## Responsabilidade
+Manter as Migrations, os Contexts, a Modelagem e a Manipulação dos dados no Banco de Dados
+
+### Estrutura do Projeto
+- /src/Configuration: Configurações de conexão com os Bancos de Dados
+- /src/Context: Contextos de conexão com os Bancos de Dados
+- /src/Models: Contém os Modelos de Dados do Banco
+- /src/Repository: O que é exposto para que outros serviços possam consumir
 
 ## Entidades
 - Livro

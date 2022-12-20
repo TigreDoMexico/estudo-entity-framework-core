@@ -1,5 +1,5 @@
-using Biblioteca.Console.Models;
-using Biblioteca.Console.Repository;
+using Biblioteca.Data.Models;
+using Biblioteca.Data.Repository;
 using Biblioteca.Console.UserInterface;
 using Cons = System.Console;
 

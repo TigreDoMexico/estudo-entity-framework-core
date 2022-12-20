@@ -1,10 +1,10 @@
-using Biblioteca.Console.Configuration;
-using Biblioteca.Console.Models;
+using Biblioteca.Data.Configuration;
+using Biblioteca.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Biblioteca.Console.Context;
+namespace Biblioteca.Data.Context;
 
-public class BibliotecaDbContext : DbContext
+internal class BibliotecaDbContext : DbContext
 {
     private readonly string _connectionString;
 

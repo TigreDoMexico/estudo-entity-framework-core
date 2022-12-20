@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Biblioteca.Console.Models;
+namespace Biblioteca.Data.Models;
 
 public class Autor
 {

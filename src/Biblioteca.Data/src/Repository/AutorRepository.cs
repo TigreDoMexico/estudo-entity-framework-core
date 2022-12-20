@@ -1,6 +1,6 @@
-using Biblioteca.Console.Models;
+using Biblioteca.Data.Models;
 
-namespace Biblioteca.Console.Repository;
+namespace Biblioteca.Data.Repository;
 public class AutorRepository : Repository<Autor>
 {
     public Autor? BuscarPorIdViaQuery(int id)

@@ -1,10 +1,10 @@
-using Biblioteca.Console.Models;
+using Biblioteca.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Biblioteca.Console.Context;
+namespace Biblioteca.Data.Context.Configuration;
 
-public class LivroConfiguration : IEntityTypeConfiguration<Livro>
+internal class LivroConfiguration : IEntityTypeConfiguration<Livro>
 {
     public void Configure(EntityTypeBuilder<Livro> builder)
     {

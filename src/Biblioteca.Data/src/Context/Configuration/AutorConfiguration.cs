@@ -1,10 +1,10 @@
-using Biblioteca.Console.Models;
+using Biblioteca.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Biblioteca.Console.src.Context.Configuration;
+namespace Biblioteca.Data.Context.Configuration;
 
-public class AutorConfiguration : IEntityTypeConfiguration<Autor>
+internal class AutorConfiguration : IEntityTypeConfiguration<Autor>
 {
     public void Configure(EntityTypeBuilder<Autor> builder)
     {

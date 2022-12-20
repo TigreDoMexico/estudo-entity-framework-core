@@ -1,15 +1,12 @@
-using Biblioteca.Console.Context;
+using Biblioteca.Data.Context;
 
-namespace Biblioteca.Console.Repository;
+namespace Biblioteca.Data.Repository;
 public abstract class Repository<T> where T : class
 {
+    internal BibliotecaDbContext dbContext;
 
-    protected BibliotecaDbContext dbContext;
-
-    public Repository()
-    {
-        dbContext = new BibliotecaDbContext();
-    }
+    internal Repository()
+        => (dbContext) = (new BibliotecaDbContext());
 
     public List<T> BuscarTodos()
         => dbContext.Set<T>().ToList();
@@ -37,6 +34,6 @@ public abstract class Repository<T> where T : class
         SalvarNaBase();
     }
 
-    protected void SalvarNaBase()
+    public void SalvarNaBase()
         => dbContext.SaveChanges();
 }
