@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Biblioteca.Data.Context.Configuration;
 
-public class LivroConfiguration : IEntityTypeConfiguration<Livro>
+internal class LivroConfiguration : IEntityTypeConfiguration<Livro>
 {
     public void Configure(EntityTypeBuilder<Livro> builder)
     {

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Biblioteca.Data.Context;
 
-public class BibliotecaDbContext : DbContext
+internal class BibliotecaDbContext : DbContext
 {
     private readonly string _connectionString;
 

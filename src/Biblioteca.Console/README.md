@@ -1,18 +1,11 @@
 # Projeto Biblioteca.Console
 
-## Entidades
-- Livro
-- Autor
+## Responsabilidade
+Armazenar as regras de negócio e ações do usuário
 
-## Comandos importantes
-- Criar Migration `dotnet ef migrations add Nome_Migration -p [Projeto] -c [Contexto] -o [Pasta]`
-- Crar script SQL `dotnet ef migrations script -p [Projeto] -o [Pasta] -i`
-- Executar Migration `dotnet ef database update -p [Projeto] -v`
-- Remover Migration `dotnet ef migrations remove -p [Projeto]`
+### Estrutura do Projeto
+- /src/Services: Mantém as regras de negócio e mantém contato direto com os Repositories
+- /src/UserInterface: Contém as ações permitidas pelo usuário
 
-## Pacotes/Tools instalados para Migration
-```
-dotnet tool install --global dotnet-ef --version 7.0.0
-dotnet add package Microsoft.EntityFrameworkCore.Design --version 7.0.0
-dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.0
-```
+## Dependências
+- Biblioteca.Data.csproj

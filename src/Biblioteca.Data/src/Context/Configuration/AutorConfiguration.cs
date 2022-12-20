@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Biblioteca.Data.Context.Configuration;
 
-public class AutorConfiguration : IEntityTypeConfiguration<Autor>
+internal class AutorConfiguration : IEntityTypeConfiguration<Autor>
 {
     public void Configure(EntityTypeBuilder<Autor> builder)
     {
